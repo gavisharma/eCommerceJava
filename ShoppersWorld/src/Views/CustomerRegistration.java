@@ -1,5 +1,10 @@
 package Views;
 
+import DatabaseServices.DBConnect;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -38,29 +43,29 @@ public class CustomerRegistration extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtValidTill = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         loginCustomer = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        txtID = new javax.swing.JTextField();
+        txtFullName = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        txtPassword = new javax.swing.JPasswordField();
         jLabel15 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        jPasswordField2 = new javax.swing.JPasswordField();
+        txtConfirmPassword = new javax.swing.JPasswordField();
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        txtContact = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
+        txtValidFrom = new javax.swing.JTextField();
+        txtCardNum = new javax.swing.JTextField();
+        txtCVV = new javax.swing.JTextField();
         registerCustomer = new javax.swing.JButton();
-        jTextField9 = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
         txtAptNum = new javax.swing.JTextField();
         txtStName = new javax.swing.JTextField();
         txtCountry = new javax.swing.JTextField();
@@ -133,9 +138,9 @@ public class CustomerRegistration extends javax.swing.JFrame {
         jLabel12.setText("Valid From");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 80, 20));
 
-        jTextField3.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(225, 90, 71));
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 390, 150, -1));
+        txtValidTill.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        txtValidTill.setForeground(new java.awt.Color(225, 90, 71));
+        jPanel1.add(txtValidTill, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 390, 150, -1));
 
         jPanel3.setBackground(new java.awt.Color(225, 90, 71));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -153,18 +158,18 @@ public class CustomerRegistration extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 461, 600, 40));
 
-        jTextField2.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(225, 90, 71));
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txtID.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        txtID.setForeground(new java.awt.Color(225, 90, 71));
+        txtID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txtIDActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 150, -1));
+        jPanel1.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 150, -1));
 
-        jTextField4.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(225, 90, 71));
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 180, 150, -1));
+        txtFullName.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        txtFullName.setForeground(new java.awt.Color(225, 90, 71));
+        jPanel1.add(txtFullName, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 180, 150, -1));
 
         jLabel3.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(225, 90, 71));
@@ -191,9 +196,9 @@ public class CustomerRegistration extends javax.swing.JFrame {
         jLabel5.setText("Customer ID");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 80, 20));
 
-        jPasswordField1.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        jPasswordField1.setForeground(new java.awt.Color(225, 90, 71));
-        jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 150, -1));
+        txtPassword.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        txtPassword.setForeground(new java.awt.Color(225, 90, 71));
+        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 150, -1));
 
         jLabel15.setBackground(new java.awt.Color(225, 90, 71));
         jLabel15.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
@@ -239,9 +244,14 @@ public class CustomerRegistration extends javax.swing.JFrame {
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 600, 1));
 
-        jPasswordField2.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        jPasswordField2.setForeground(new java.awt.Color(225, 90, 71));
-        jPanel1.add(jPasswordField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, 150, -1));
+        txtConfirmPassword.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        txtConfirmPassword.setForeground(new java.awt.Color(225, 90, 71));
+        txtConfirmPassword.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtConfirmPasswordFocusLost(evt);
+            }
+        });
+        jPanel1.add(txtConfirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, 150, -1));
 
         jLabel8.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(225, 90, 71));
@@ -253,26 +263,26 @@ public class CustomerRegistration extends javax.swing.JFrame {
         jLabel10.setText("Contact");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 80, 20));
 
-        jTextField5.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        jTextField5.setForeground(new java.awt.Color(225, 90, 71));
-        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, 150, -1));
+        txtContact.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        txtContact.setForeground(new java.awt.Color(225, 90, 71));
+        jPanel1.add(txtContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, 150, -1));
 
         jLabel17.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(225, 90, 71));
         jLabel17.setText("CVV");
         jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, 100, 20));
 
-        jTextField6.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        jTextField6.setForeground(new java.awt.Color(225, 90, 71));
-        jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, 150, -1));
+        txtValidFrom.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        txtValidFrom.setForeground(new java.awt.Color(225, 90, 71));
+        jPanel1.add(txtValidFrom, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, 150, -1));
 
-        jTextField7.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        jTextField7.setForeground(new java.awt.Color(225, 90, 71));
-        jPanel1.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, 150, -1));
+        txtCardNum.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        txtCardNum.setForeground(new java.awt.Color(225, 90, 71));
+        jPanel1.add(txtCardNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, 150, -1));
 
-        jTextField8.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        jTextField8.setForeground(new java.awt.Color(225, 90, 71));
-        jPanel1.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, 150, -1));
+        txtCVV.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        txtCVV.setForeground(new java.awt.Color(225, 90, 71));
+        jPanel1.add(txtCVV, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, 150, -1));
 
         registerCustomer.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         registerCustomer.setForeground(new java.awt.Color(225, 90, 71));
@@ -284,9 +294,9 @@ public class CustomerRegistration extends javax.swing.JFrame {
         });
         jPanel1.add(registerCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 420, 100, 30));
 
-        jTextField9.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        jTextField9.setForeground(new java.awt.Color(225, 90, 71));
-        jPanel1.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 150, -1));
+        txtEmail.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        txtEmail.setForeground(new java.awt.Color(225, 90, 71));
+        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 150, -1));
 
         txtAptNum.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         txtAptNum.setForeground(new java.awt.Color(225, 90, 71));
@@ -296,7 +306,7 @@ public class CustomerRegistration extends javax.swing.JFrame {
                 txtAptNumFocusGained(evt);
             }
         });
-        jPanel1.add(txtAptNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, 35, -1));
+        jPanel1.add(txtAptNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, 45, -1));
 
         txtStName.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         txtStName.setForeground(new java.awt.Color(225, 90, 71));
@@ -306,7 +316,7 @@ public class CustomerRegistration extends javax.swing.JFrame {
                 txtStNameFocusGained(evt);
             }
         });
-        jPanel1.add(txtStName, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 270, 110, -1));
+        jPanel1.add(txtStName, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 270, 100, -1));
 
         txtCountry.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         txtCountry.setForeground(new java.awt.Color(225, 90, 71));
@@ -338,13 +348,57 @@ public class CustomerRegistration extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txtIDActionPerformed
 
     private void registerCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerCustomerActionPerformed
         // TODO add your handling code here:
         System.out.println("Register clicked");
+        System.out.println("Register clicked");
+        if(txtID.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Please enter Admin ID...");
+        } else if(txtPassword.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Please enter Password...");
+        } else if(!txtConfirmPassword.getText().equals(txtPassword.getText())){
+            JOptionPane.showMessageDialog(this, "Password and Confirm Password do not match...");
+        } else if(txtFullName.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Please enter Full Name...");
+        } else if(txtEmail.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Please enter Email...");
+        } else if(txtEmail.getText().indexOf("@") == -1 || txtEmail.getText().indexOf(".") == -1){
+            JOptionPane.showMessageDialog(this,"Entered email is incorrect...");
+        } else if(txtContact.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Please enter Contact...");
+        } else if(txtAptNum.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Please enter Apartment Number...");
+        } else if(txtStName.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Please enter Street Name...");
+        } else if(txtProvince.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Please enter Province...");
+        } else if(txtCountry.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Please enter Country...");
+        } else if(txtCardNum.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Please enter Card Number...");
+        } else if(txtCVV.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Please enter CVV Number...");
+        } else if(txtValidFrom.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Please enter Date Card Valid From...");
+        } else if(txtValidTill.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Please enter Date Card Valid Till...");
+        } else {
+            Statement statement = DBConnect.getStatement();
+            String query = "insert into customer(ID, password, name, email, contact, aptnumber, streetname, province, country, cardnumber, cvv, issuedate, expirydate) values('"+txtID.getText()+"','"+txtPassword.getText()+"','"+txtFullName.getText()+"','"+txtEmail.getText()+"','"+txtContact.getText()+"','"+txtAptNum.getText()+"','"+txtStName.getText()+"','"+txtProvince.getText()+"','"+txtCountry.getText()+"','"+txtCardNum.getText()+"','"+txtCVV.getText()+"','"+txtValidFrom.getText()+"','"+txtValidTill.getText()+"')";
+            try {
+                if (!statement.execute(query)) {
+                    JOptionPane.showMessageDialog(this,"CUSTOMER REGISTERED SUCCESSFULLY...!!!");
+                } else {
+                    JOptionPane.showMessageDialog(this,"OOPS...!!! SOMETHING WENT WRONG...!!!");
+                }
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, ex);
+            }
+        }
     }//GEN-LAST:event_registerCustomerActionPerformed
 
     private void loginCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginCustomerActionPerformed
@@ -377,6 +431,13 @@ public class CustomerRegistration extends javax.swing.JFrame {
         // TODO add your handling code here:
         txtCountry.setText("");
     }//GEN-LAST:event_txtCountryFocusGained
+
+    private void txtConfirmPasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtConfirmPasswordFocusLost
+        // TODO add your handling code here:
+        if(!txtConfirmPassword.getText().equals(txtPassword.getText())){
+            JOptionPane.showMessageDialog(this, "Password and Confirm Password do not match...");
+        }
+    }//GEN-LAST:event_txtConfirmPasswordFocusLost
 
     /**
      * @param args the command line arguments
@@ -434,21 +495,21 @@ public class CustomerRegistration extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JButton loginCustomer;
     private javax.swing.JButton registerCustomer;
     private javax.swing.JTextField txtAptNum;
+    private javax.swing.JTextField txtCVV;
+    private javax.swing.JTextField txtCardNum;
+    private javax.swing.JPasswordField txtConfirmPassword;
+    private javax.swing.JTextField txtContact;
     private javax.swing.JTextField txtCountry;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtFullName;
+    private javax.swing.JTextField txtID;
+    private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtProvince;
     private javax.swing.JTextField txtStName;
+    private javax.swing.JTextField txtValidFrom;
+    private javax.swing.JTextField txtValidTill;
     // End of variables declaration//GEN-END:variables
 }

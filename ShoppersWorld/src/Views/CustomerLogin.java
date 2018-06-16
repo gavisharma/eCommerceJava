@@ -1,6 +1,10 @@
 package Views;
 
 import Controllers.BaseNavigation;
+import DatabaseServices.DBConnect;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /*
  * To change this template, choose Tools | Templates
@@ -35,13 +39,13 @@ public class CustomerLogin extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtUserName = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         registerCustomer = new javax.swing.JButton();
         backButton = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        txtPassword = new javax.swing.JPasswordField();
         loginCustomer = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -85,14 +89,14 @@ public class CustomerLogin extends javax.swing.JFrame {
         jLabel9.setText("CUSTOMER SIGN IN");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 145, 600, 30));
 
-        jTextField2.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(225, 90, 71));
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txtUserName.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        txtUserName.setForeground(new java.awt.Color(225, 90, 71));
+        txtUserName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txtUserNameActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, 150, -1));
+        jPanel1.add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, 150, -1));
 
         jPanel4.setBackground(new java.awt.Color(225, 90, 71));
 
@@ -139,9 +143,9 @@ public class CustomerLogin extends javax.swing.JFrame {
         jLabel5.setText("Customer ID");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, -1, 20));
 
-        jPasswordField1.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        jPasswordField1.setForeground(new java.awt.Color(225, 90, 71));
-        jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, 150, -1));
+        txtPassword.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        txtPassword.setForeground(new java.awt.Color(225, 90, 71));
+        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, 150, -1));
 
         loginCustomer.setBackground(new java.awt.Color(255, 255, 255));
         loginCustomer.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
@@ -149,6 +153,11 @@ public class CustomerLogin extends javax.swing.JFrame {
         loginCustomer.setText("LOGIN");
         loginCustomer.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         loginCustomer.setBorderPainted(false);
+        loginCustomer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginCustomerActionPerformed(evt);
+            }
+        });
         jPanel1.add(loginCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, 130, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 500));
@@ -156,9 +165,9 @@ public class CustomerLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txtUserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txtUserNameActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
@@ -172,6 +181,26 @@ public class CustomerLogin extends javax.swing.JFrame {
         cstmrReg.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_registerCustomerActionPerformed
+
+    private void loginCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginCustomerActionPerformed
+        // TODO add your handling code here:
+        String query = "select ID, name from customer where ID = '"+ txtUserName.getText() +"' and password = '"+ txtPassword.getText() +"'";
+        try {
+            ResultSet resultSet = DBConnect.getResultSetForQuery(query);
+            if(resultSet.next()){
+                CustomerLogin.userName = resultSet.getString(2).toUpperCase();
+                HomeCategories homeCat = new HomeCategories();
+                homeCat.setVisible(true);
+                this.setVisible(false);
+            } else{
+                JOptionPane.showMessageDialog(this,"Invalid Username/Password.....!!!");
+                txtUserName.setText("");
+                txtPassword.setText("");
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, ex);
+        }
+    }//GEN-LAST:event_loginCustomerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -217,9 +246,9 @@ public class CustomerLogin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JButton loginCustomer;
     private javax.swing.JButton registerCustomer;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
 }

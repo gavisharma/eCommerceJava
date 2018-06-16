@@ -17,7 +17,7 @@ public class HomeCategories extends javax.swing.JFrame {
      * Creates new form CustomerRegistration
      */
     
-    public static String userName;
+    public String userName;
     public HomeCategories() {
         initComponents();
         System.out.println(AdminLogin.userName);
@@ -25,9 +25,9 @@ public class HomeCategories extends javax.swing.JFrame {
             lblUserName.setText("Welcome: GUEST");
             btnLogout.setLabel("Back");
         } else if (AdminLogin.userName != null ){
-            lblUserName.setText("Welcome: "+AdminLogin.userName);
+            lblUserName.setText("Welcome: " + AdminLogin.userName);
         } else if (CustomerLogin.userName != null ){
-            lblUserName.setText("Welcome: "+CustomerLogin.userName);
+            lblUserName.setText("Welcome: " + CustomerLogin.userName);
         }
     }
 
@@ -312,6 +312,11 @@ public class HomeCategories extends javax.swing.JFrame {
         jPanel44.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnClothing.setContentAreaFilled(false);
+        btnClothing.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClothingActionPerformed(evt);
+            }
+        });
         jPanel44.add(btnClothing, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 100));
 
         jLabel67.setBackground(new java.awt.Color(225, 90, 71));
@@ -414,6 +419,15 @@ public class HomeCategories extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnComputersActionPerformed
 
+    private void btnClothingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClothingActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnClothingActionPerformed
+
+    public void displayProductsForCategoryWithID(int categoryID){
+        
+    }
+    
     /**
      * @param args the command line arguments
      */

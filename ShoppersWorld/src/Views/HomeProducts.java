@@ -40,49 +40,49 @@ public class HomeProducts extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jPanel34 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jLabel47 = new javax.swing.JLabel();
-        jLabel48 = new javax.swing.JLabel();
+        thirdButton = new javax.swing.JButton();
+        thirdLabel = new javax.swing.JLabel();
+        thirdImage = new javax.swing.JLabel();
         jPanel35 = new javax.swing.JPanel();
         jLabel49 = new javax.swing.JLabel();
         jLabel50 = new javax.swing.JLabel();
         jPanel46 = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
-        jLabel71 = new javax.swing.JLabel();
-        jLabel72 = new javax.swing.JLabel();
+        secondButton = new javax.swing.JButton();
+        secondLabel = new javax.swing.JLabel();
+        secondImage = new javax.swing.JLabel();
         jPanel47 = new javax.swing.JPanel();
         jLabel73 = new javax.swing.JLabel();
         jLabel74 = new javax.swing.JLabel();
         jPanel48 = new javax.swing.JPanel();
-        jButton4 = new javax.swing.JButton();
-        jLabel75 = new javax.swing.JLabel();
-        jLabel76 = new javax.swing.JLabel();
+        fourthButton = new javax.swing.JButton();
+        fourthLabel = new javax.swing.JLabel();
+        fourthImage = new javax.swing.JLabel();
         jPanel49 = new javax.swing.JPanel();
         jLabel77 = new javax.swing.JLabel();
         jLabel78 = new javax.swing.JLabel();
         jPanel52 = new javax.swing.JPanel();
-        jButton6 = new javax.swing.JButton();
-        jLabel83 = new javax.swing.JLabel();
-        jLabel84 = new javax.swing.JLabel();
+        fifthButton = new javax.swing.JButton();
+        fifthLabel = new javax.swing.JLabel();
+        fifthImage = new javax.swing.JLabel();
         jPanel53 = new javax.swing.JPanel();
         jLabel85 = new javax.swing.JLabel();
         jLabel86 = new javax.swing.JLabel();
         jPanel44 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jLabel67 = new javax.swing.JLabel();
-        jLabel68 = new javax.swing.JLabel();
+        firstButton = new javax.swing.JButton();
+        firstLabel = new javax.swing.JLabel();
+        firstImage = new javax.swing.JLabel();
         jPanel45 = new javax.swing.JPanel();
         jLabel69 = new javax.swing.JLabel();
         jLabel70 = new javax.swing.JLabel();
         jPanel38 = new javax.swing.JPanel();
-        jButton5 = new javax.swing.JButton();
-        jLabel55 = new javax.swing.JLabel();
-        jLabel56 = new javax.swing.JLabel();
+        sixthButton = new javax.swing.JButton();
+        sixthLabel = new javax.swing.JLabel();
+        sixthImage = new javax.swing.JLabel();
         jPanel39 = new javax.swing.JPanel();
         jLabel57 = new javax.swing.JLabel();
         jLabel58 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
+        lblUserName = new javax.swing.JLabel();
+        btnLogout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 46, 30));
@@ -179,17 +179,17 @@ public class HomeProducts extends javax.swing.JFrame {
         jPanel34.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(238, 215, 121)));
         jPanel34.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setContentAreaFilled(false);
-        jPanel34.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 100));
+        thirdButton.setContentAreaFilled(false);
+        jPanel34.add(thirdButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 100));
 
-        jLabel47.setForeground(new java.awt.Color(225, 90, 71));
-        jLabel47.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel47.setText("Computers");
-        jPanel34.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 100, -1));
+        thirdLabel.setForeground(new java.awt.Color(225, 90, 71));
+        thirdLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        thirdLabel.setText("Computers");
+        jPanel34.add(thirdLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 100, -1));
 
-        jLabel48.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel48.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Computers.png"))); // NOI18N
-        jPanel34.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 8, 60, 64));
+        thirdImage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        thirdImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Computers.png"))); // NOI18N
+        jPanel34.add(thirdImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 8, 60, 64));
 
         jPanel35.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -207,17 +207,17 @@ public class HomeProducts extends javax.swing.JFrame {
         jPanel46.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(238, 215, 121)));
         jPanel46.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton3.setContentAreaFilled(false);
-        jPanel46.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 100));
+        secondButton.setContentAreaFilled(false);
+        jPanel46.add(secondButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 100));
 
-        jLabel71.setForeground(new java.awt.Color(225, 90, 71));
-        jLabel71.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel71.setText("Electronics");
-        jPanel46.add(jLabel71, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 100, -1));
+        secondLabel.setForeground(new java.awt.Color(225, 90, 71));
+        secondLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        secondLabel.setText("Electronics");
+        jPanel46.add(secondLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 100, -1));
 
-        jLabel72.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel72.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/CatElec.jpg"))); // NOI18N
-        jPanel46.add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 60, 60));
+        secondImage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        secondImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/CatElec.jpg"))); // NOI18N
+        jPanel46.add(secondImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 60, 60));
 
         jPanel47.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -235,17 +235,17 @@ public class HomeProducts extends javax.swing.JFrame {
         jPanel48.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(238, 215, 121)));
         jPanel48.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton4.setContentAreaFilled(false);
-        jPanel48.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 100));
+        fourthButton.setContentAreaFilled(false);
+        jPanel48.add(fourthButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 100));
 
-        jLabel75.setForeground(new java.awt.Color(225, 90, 71));
-        jLabel75.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel75.setText("Mobile");
-        jPanel48.add(jLabel75, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 100, -1));
+        fourthLabel.setForeground(new java.awt.Color(225, 90, 71));
+        fourthLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fourthLabel.setText("Mobile");
+        jPanel48.add(fourthLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 100, -1));
 
-        jLabel76.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel76.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/CatMobi.jpg"))); // NOI18N
-        jPanel48.add(jLabel76, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 60, 60));
+        fourthImage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fourthImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/CatMobi.jpg"))); // NOI18N
+        jPanel48.add(fourthImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 60, 60));
 
         jPanel49.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -263,22 +263,22 @@ public class HomeProducts extends javax.swing.JFrame {
         jPanel52.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(238, 215, 121)));
         jPanel52.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton6.setContentAreaFilled(false);
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        fifthButton.setContentAreaFilled(false);
+        fifthButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                fifthButtonActionPerformed(evt);
             }
         });
-        jPanel52.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 100));
+        jPanel52.add(fifthButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 100));
 
-        jLabel83.setForeground(new java.awt.Color(225, 90, 71));
-        jLabel83.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel83.setText("Sports");
-        jPanel52.add(jLabel83, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 100, -1));
+        fifthLabel.setForeground(new java.awt.Color(225, 90, 71));
+        fifthLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fifthLabel.setText("Sports");
+        jPanel52.add(fifthLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 100, -1));
 
-        jLabel84.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel84.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Sports.jpg"))); // NOI18N
-        jPanel52.add(jLabel84, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 60, 60));
+        fifthImage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fifthImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Sports.jpg"))); // NOI18N
+        jPanel52.add(fifthImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 60, 60));
 
         jPanel53.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -296,19 +296,19 @@ public class HomeProducts extends javax.swing.JFrame {
         jPanel44.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(238, 215, 121)));
         jPanel44.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton2.setContentAreaFilled(false);
-        jPanel44.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 100));
+        firstButton.setContentAreaFilled(false);
+        jPanel44.add(firstButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 100));
 
-        jLabel67.setBackground(new java.awt.Color(225, 90, 71));
-        jLabel67.setForeground(new java.awt.Color(225, 90, 71));
-        jLabel67.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel67.setText("Clothing");
-        jPanel44.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 100, -1));
+        firstLabel.setBackground(new java.awt.Color(225, 90, 71));
+        firstLabel.setForeground(new java.awt.Color(225, 90, 71));
+        firstLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        firstLabel.setText("Clothing");
+        jPanel44.add(firstLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 100, -1));
 
-        jLabel68.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel68.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/CatClot.jpg"))); // NOI18N
-        jLabel68.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel44.add(jLabel68, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 60, 60));
+        firstImage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        firstImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/CatClot.jpg"))); // NOI18N
+        firstImage.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel44.add(firstImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 60, 60));
 
         jPanel45.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -326,17 +326,17 @@ public class HomeProducts extends javax.swing.JFrame {
         jPanel38.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(238, 215, 121)));
         jPanel38.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton5.setContentAreaFilled(false);
-        jPanel38.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 100));
+        sixthButton.setContentAreaFilled(false);
+        jPanel38.add(sixthButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 100));
 
-        jLabel55.setForeground(new java.awt.Color(225, 90, 71));
-        jLabel55.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel55.setText("Softwares");
-        jPanel38.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 100, -1));
+        sixthLabel.setForeground(new java.awt.Color(225, 90, 71));
+        sixthLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        sixthLabel.setText("Softwares");
+        jPanel38.add(sixthLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 100, -1));
 
-        jLabel56.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel56.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/software jej.png"))); // NOI18N
-        jPanel38.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 60, 60));
+        sixthImage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        sixthImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/software jej.png"))); // NOI18N
+        jPanel38.add(sixthImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 60, 60));
 
         jPanel39.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -350,11 +350,11 @@ public class HomeProducts extends javax.swing.JFrame {
 
         jPanel1.add(jPanel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 340, 100, 100));
 
-        jLabel1.setText("jLabel1");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
+        lblUserName.setText("jLabel1");
+        jPanel1.add(lblUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
 
-        jButton7.setText("jButton7");
-        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 180, -1, -1));
+        btnLogout.setText("jButton7");
+        jPanel1.add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 180, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 500));
 
@@ -374,9 +374,9 @@ public class HomeProducts extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_registerCustomerActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void fifthButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fifthButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_fifthButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -414,37 +414,27 @@ public class HomeProducts extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btnLogout;
+    private javax.swing.JButton fifthButton;
+    private javax.swing.JLabel fifthImage;
+    private javax.swing.JLabel fifthLabel;
+    private javax.swing.JButton firstButton;
+    private javax.swing.JLabel firstImage;
+    private javax.swing.JLabel firstLabel;
+    private javax.swing.JButton fourthButton;
+    private javax.swing.JLabel fourthImage;
+    private javax.swing.JLabel fourthLabel;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel47;
-    private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel50;
-    private javax.swing.JLabel jLabel55;
-    private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
-    private javax.swing.JLabel jLabel67;
-    private javax.swing.JLabel jLabel68;
     private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel70;
-    private javax.swing.JLabel jLabel71;
-    private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel74;
-    private javax.swing.JLabel jLabel75;
-    private javax.swing.JLabel jLabel76;
     private javax.swing.JLabel jLabel77;
     private javax.swing.JLabel jLabel78;
-    private javax.swing.JLabel jLabel83;
-    private javax.swing.JLabel jLabel84;
     private javax.swing.JLabel jLabel85;
     private javax.swing.JLabel jLabel86;
     private javax.swing.JLabel jLabel9;
@@ -465,6 +455,16 @@ public class HomeProducts extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel52;
     private javax.swing.JPanel jPanel53;
+    private javax.swing.JLabel lblUserName;
     private javax.swing.JButton registerCustomer;
+    private javax.swing.JButton secondButton;
+    private javax.swing.JLabel secondImage;
+    private javax.swing.JLabel secondLabel;
+    private javax.swing.JButton sixthButton;
+    private javax.swing.JLabel sixthImage;
+    private javax.swing.JLabel sixthLabel;
+    private javax.swing.JButton thirdButton;
+    private javax.swing.JLabel thirdImage;
+    private javax.swing.JLabel thirdLabel;
     // End of variables declaration//GEN-END:variables
 }
