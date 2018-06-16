@@ -16,6 +16,7 @@ public class CustomerLogin extends javax.swing.JFrame {
     /**
      * Creates new form CustomerRegistration
      */
+    public static String userName;
     public CustomerLogin() {
         initComponents();
     }
@@ -161,7 +162,7 @@ public class CustomerLogin extends javax.swing.JFrame {
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
-        new BaseNavigation().backButtonClicked("");
+        new BaseNavigation().backButtonClicked();
         this.setVisible(false);
     }//GEN-LAST:event_backButtonActionPerformed
 

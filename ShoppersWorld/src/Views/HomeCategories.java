@@ -20,9 +20,14 @@ public class HomeCategories extends javax.swing.JFrame {
     public static String userName;
     public HomeCategories() {
         initComponents();
-        if (userName == null ||userName.equalsIgnoreCase("GUEST")) {
+        System.out.println(AdminLogin.userName);
+        if (AdminLogin.userName == null && CustomerLogin.userName == null) {
             lblUserName.setText("Welcome: GUEST");
             btnLogout.setLabel("Back");
+        } else if (AdminLogin.userName != null ){
+            lblUserName.setText("Welcome: "+AdminLogin.userName);
+        } else if (CustomerLogin.userName != null ){
+            lblUserName.setText("Welcome: "+CustomerLogin.userName);
         }
     }
 
@@ -378,7 +383,7 @@ public class HomeCategories extends javax.swing.JFrame {
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
-        new BaseNavigation().backButtonClicked("");        
+        new BaseNavigation().backButtonClicked();        
         this.setVisible(false);
     }//GEN-LAST:event_backButtonActionPerformed
 
@@ -395,12 +400,14 @@ public class HomeCategories extends javax.swing.JFrame {
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
-        if (userName.equalsIgnoreCase("GUEST")) {
-            new BaseNavigation().backButtonClicked("");
-            this.setVisible(false);
-        } else{
-            
+        if (AdminLogin.userName != null) {
+            AdminLogin.userName = null;
         }
+        if (CustomerLogin.userName != null) {
+            CustomerLogin.userName = null;
+        }
+        new BaseNavigation().backButtonClicked();
+        this.setVisible(false);
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void btnComputersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComputersActionPerformed

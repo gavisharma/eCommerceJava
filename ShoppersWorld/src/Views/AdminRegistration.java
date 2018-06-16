@@ -3,8 +3,6 @@ package Views;
 import DatabaseServices.DBConnect;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /*
@@ -122,6 +120,14 @@ public class AdminRegistration extends javax.swing.JFrame {
 
         txtEmail.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         txtEmail.setForeground(new java.awt.Color(225, 90, 71));
+        txtEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtEmailFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtEmailFocusLost(evt);
+            }
+        });
         jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, 150, -1));
 
         txtID.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
@@ -131,10 +137,20 @@ public class AdminRegistration extends javax.swing.JFrame {
                 txtIDActionPerformed(evt);
             }
         });
+        txtID.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtIDFocusLost(evt);
+            }
+        });
         jPanel1.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 185, 150, -1));
 
         txtFullName.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         txtFullName.setForeground(new java.awt.Color(225, 90, 71));
+        txtFullName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtFullNameFocusLost(evt);
+            }
+        });
         jPanel1.add(txtFullName, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, 150, -1));
 
         jLabel3.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
@@ -164,6 +180,14 @@ public class AdminRegistration extends javax.swing.JFrame {
 
         txtPassword.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         txtPassword.setForeground(new java.awt.Color(225, 90, 71));
+        txtPassword.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtPasswordFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtPasswordFocusLost(evt);
+            }
+        });
         jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 215, 150, -1));
 
         jPanel5.setBackground(new java.awt.Color(225, 90, 71));
@@ -214,6 +238,14 @@ public class AdminRegistration extends javax.swing.JFrame {
                 txtContactActionPerformed(evt);
             }
         });
+        txtContact.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtContactFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtContactFocusLost(evt);
+            }
+        });
         jPanel1.add(txtContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 380, 150, -1));
 
         registerAdmin.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
@@ -245,27 +277,31 @@ public class AdminRegistration extends javax.swing.JFrame {
     private void registerAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerAdminActionPerformed
         // TODO add your handling code here:
         System.out.println("Register clicked");
-        Statement statement = DBConnect.getStatement();
         if(txtID.getText().equals("")){
             JOptionPane.showMessageDialog(this, "Please enter Admin ID...");
         } else if(txtPassword.getText().equals("")){
             JOptionPane.showMessageDialog(this, "Please enter Password...");
+        } else if(!txtConfirmPassword.getText().equals(txtPassword.getText())){
+            JOptionPane.showMessageDialog(this, "Password and Confirm Password do not match...");
         } else if(txtFullName.getText().equals("")){
             JOptionPane.showMessageDialog(this, "Please enter Full Name...");
         } else if(txtEmail.getText().equals("")){
             JOptionPane.showMessageDialog(this, "Please enter Email...");
+        } else if(txtEmail.getText().indexOf("@") == -1 || txtEmail.getText().indexOf(".") == -1){
+            JOptionPane.showMessageDialog(this,"Entered email is incorrect...");
         } else if(txtContact.getText().equals("")){
             JOptionPane.showMessageDialog(this, "Please enter Contact...");
-        } else if(txtEmail.getText().indexOf("@")==-1 || txtEmail.getText().indexOf(".")==-1){
-            JOptionPane.showMessageDialog(this,"Entered email is incorrect");
         } else {
+            Statement statement = DBConnect.getStatement();
             String query = "insert into admin(ID, password, name, email, contact) values('"+txtID.getText()+"','"+txtPassword.getText()+"','"+txtFullName.getText()+"','"+txtEmail.getText()+"','"+txtContact.getText()+"')";
             try {
-                if (statement.execute(query)) {
+                if (!statement.execute(query)) {
                     JOptionPane.showMessageDialog(this,"ADMIN REGISTERED SUCCESSFULLY...!!!");
+                } else {
+                    JOptionPane.showMessageDialog(this,"OOPS...!!! SOMETHING WENT WRONG...!!!");
                 }
             } catch (SQLException ex) {
-                Logger.getLogger(AdminRegistration.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(this, ex);
             }
         }
     }//GEN-LAST:event_registerAdminActionPerformed
@@ -276,10 +312,60 @@ public class AdminRegistration extends javax.swing.JFrame {
 
     private void txtConfirmPasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtConfirmPasswordFocusLost
         // TODO add your handling code here:
-        if(txtConfirmPassword.getText().equals(txtPassword.getText())){
+        if(!txtConfirmPassword.getText().equals(txtPassword.getText())){
             JOptionPane.showMessageDialog(this, "Password and Confirm Password do not match...");
+            txtConfirmPassword.grabFocus();
         }
     }//GEN-LAST:event_txtConfirmPasswordFocusLost
+
+    private void txtIDFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtIDFocusLost
+        // TODO add your handling code here:
+//        if(txtID.getText().equals("")){
+//            JOptionPane.showMessageDialog(this, "Please enter Admin ID...");
+//        }
+    }//GEN-LAST:event_txtIDFocusLost
+
+    private void txtPasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPasswordFocusLost
+        // TODO add your handling code here:
+//        if(txtPassword.getText().equals("")){
+//            JOptionPane.showMessageDialog(this, "Please enter Password...");
+//        }
+    }//GEN-LAST:event_txtPasswordFocusLost
+
+    private void txtFullNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFullNameFocusLost
+        // TODO add your handling code here:
+//        if(txtFullName.getText().equals("")){
+//            JOptionPane.showMessageDialog(this, "Please enter Full Name...");
+//        }
+    }//GEN-LAST:event_txtFullNameFocusLost
+
+    private void txtEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusLost
+        // TODO add your handling code here:
+//        if(txtEmail.getText().equals("")){
+//            JOptionPane.showMessageDialog(this, "Please enter Email...");
+//        } else if(txtEmail.getText().indexOf("@") == -1 || txtEmail.getText().indexOf(".") == -1){
+//            JOptionPane.showMessageDialog(this,"Entered email is incorrect...");
+//        }
+    }//GEN-LAST:event_txtEmailFocusLost
+
+    private void txtContactFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtContactFocusLost
+        // TODO add your handling code here:
+//        if(txtContact.getText().equals("")){
+//            JOptionPane.showMessageDialog(this, "Please enter Contact...");
+//        }
+    }//GEN-LAST:event_txtContactFocusLost
+
+    private void txtEmailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEmailFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmailFocusGained
+
+    private void txtContactFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtContactFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContactFocusGained
+
+    private void txtPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPasswordFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPasswordFocusGained
 
     /**
      * @param args the command line arguments

@@ -22,6 +22,7 @@ public class AdminLogin extends javax.swing.JFrame {
     /**
      * Creates new form CustomerRegistration
      */
+    public static String userName;
     public AdminLogin() {
         initComponents();
     }
@@ -181,18 +182,19 @@ public class AdminLogin extends javax.swing.JFrame {
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
-        new BaseNavigation().backButtonClicked("");
+        new BaseNavigation().backButtonClicked();
         this.setVisible(false);
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void loginAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginAdminActionPerformed
         // TODO add your handling code here:
-        String query = "Select name from admin where ID = '"+ txtUserName.getText() +"' and password = '"+ txtPassword.getText() +"'";
-        ResultSet resultSet = DBConnect.getResultSetForQuery(query);
+        
+        String query = "Select ID, name from admin where ID = '"+ txtUserName.getText() +"' and password = '"+ txtPassword.getText() +"'";
         try {
+            ResultSet resultSet = DBConnect.getResultSetForQuery(query);
             if(resultSet.next()){
+                AdminLogin.userName = resultSet.getString(2).toUpperCase();
                 HomeCategories homeCat = new HomeCategories();
-                HomeCategories.userName = resultSet.getString(1).toUpperCase();
                 homeCat.setVisible(true);
                 this.setVisible(false);
             }

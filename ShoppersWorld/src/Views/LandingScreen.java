@@ -13,7 +13,6 @@ public class LandingScreen extends javax.swing.JFrame {
     /**
      * Creates new form LandingScreen
      */
-    public static String userName = "GUEST";
     public LandingScreen() {
         initComponents();
     }
@@ -112,7 +111,6 @@ public class LandingScreen extends javax.swing.JFrame {
     private void guestButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guestButtonActionPerformed
         // TODO add your handling code here:
         HomeCategories categories = new HomeCategories();
-        HomeCategories.userName = userName;
         categories.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_guestButtonActionPerformed
