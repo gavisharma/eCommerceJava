@@ -12,24 +12,19 @@ package Models;
 public class Customer extends User{
     String address;
     CreditCard creditCardInfo;
-    String shippingAddress;
+    Region shippingAddress;
 
     public Customer() {
         super("","","","",false);
         this.address = "";
         this.creditCardInfo = new CreditCard();
-        this.shippingAddress = "";
+        this.shippingAddress = new Region();
     }
     
-    public Customer(String address, CreditCard creditCardInfo, String shippingAddress, String ID, String password, String name, String email, String loginStatus, boolean isAdmin) {
+    public Customer(String address, CreditCard creditCardInfo, Region shippingAddress, String ID, String password, String name, String email, String loginStatus, boolean isAdmin) {
         super(ID, password, name, email, isAdmin);
         this.address = address;
         this.creditCardInfo = creditCardInfo;
         this.shippingAddress = shippingAddress;
     }
-
-    
-    
-    
-    
 }

@@ -13,6 +13,7 @@ public class LandingScreen extends javax.swing.JFrame {
     /**
      * Creates new form LandingScreen
      */
+    public static String userName = "GUEST";
     public LandingScreen() {
         initComponents();
     }
@@ -28,12 +29,14 @@ public class LandingScreen extends javax.swing.JFrame {
 
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         adminButton = new javax.swing.JButton();
         userButton = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
+        guestButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBounds(new java.awt.Rectangle(350, 100, 0, 0));
         setMinimumSize(new java.awt.Dimension(600, 500));
         setPreferredSize(new java.awt.Dimension(600, 530));
         setResizable(false);
@@ -49,6 +52,11 @@ public class LandingScreen extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Admin");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 470, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Brush Script MT", 0, 48)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(72, 27, 91));
+        jLabel6.setText("Login");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, -1, -1));
 
         adminButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/login.png"))); // NOI18N
         adminButton.setContentAreaFilled(false);
@@ -70,15 +78,19 @@ public class LandingScreen extends javax.swing.JFrame {
         });
         getContentPane().add(userButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 370, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Brush Script MT", 0, 48)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(72, 27, 91));
-        jLabel4.setText("Login");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, -1, -1));
+        guestButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/guestIcon.jpg"))); // NOI18N
+        guestButton.setContentAreaFilled(false);
+        guestButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guestButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(guestButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 391, 100, -1));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/MainPage.png"))); // NOI18N
         jLabel1.setPreferredSize(new java.awt.Dimension(600, 501));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 501));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 501));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -96,6 +108,14 @@ public class LandingScreen extends javax.swing.JFrame {
         cstmrLgn.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_userButtonActionPerformed
+
+    private void guestButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guestButtonActionPerformed
+        // TODO add your handling code here:
+        HomeCategories categories = new HomeCategories();
+        HomeCategories.userName = userName;
+        categories.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_guestButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -133,10 +153,11 @@ public class LandingScreen extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton adminButton;
+    private javax.swing.JButton guestButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JButton userButton;
     // End of variables declaration//GEN-END:variables
 }

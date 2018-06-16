@@ -17,7 +17,7 @@ public class Admin extends User {
         this.accessLevel = "";
     }
 
-    public Admin(String accessLevel, String ID, String password, String name, String email, String loginStatus, boolean isAdmin) {
+    public Admin(String accessLevel, String ID, String password, String name, String email, boolean isAdmin) {
         super(ID, password, name, email, isAdmin);
         this.accessLevel = accessLevel;
     }

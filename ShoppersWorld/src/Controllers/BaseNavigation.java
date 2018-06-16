@@ -12,9 +12,10 @@ import Views.LandingScreen;
  */
 public class BaseNavigation {
     
-    public void backButtonClicked(){
+    public void backButtonClicked(String userName){
         LandingScreen lndngScrn = new LandingScreen();
         lndngScrn.setVisible(true);
+        lndngScrn.userName = userName;
     }
     
     public void homeButtonClicked(){

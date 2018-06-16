@@ -1,5 +1,12 @@
 package Views;
 
+import DatabaseServices.DBConnect;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -34,24 +41,25 @@ public class AdminRegistration extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        loginAdmin = new javax.swing.JButton();
+        txtEmail = new javax.swing.JTextField();
+        txtID = new javax.swing.JTextField();
+        txtFullName = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        txtPassword = new javax.swing.JPasswordField();
         jPanel5 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
-        jPasswordField2 = new javax.swing.JPasswordField();
+        txtConfirmPassword = new javax.swing.JPasswordField();
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        txtContact = new javax.swing.JTextField();
+        registerAdmin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 46, 30));
+        setBounds(new java.awt.Rectangle(350, 100, 0, 0));
         setForeground(new java.awt.Color(0, 46, 30));
         setMinimumSize(new java.awt.Dimension(600, 450));
         setPreferredSize(new java.awt.Dimension(600, 530));
@@ -99,27 +107,35 @@ public class AdminRegistration extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(225, 90, 71));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton2.setText("Click to Login");
-        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
+        loginAdmin.setForeground(new java.awt.Color(255, 255, 255));
+        loginAdmin.setText("Already registered? Procedd to Login...");
+        loginAdmin.setContentAreaFilled(false);
+        loginAdmin.setPreferredSize(new java.awt.Dimension(120, 40));
+        loginAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginAdminActionPerformed(evt);
+            }
+        });
+        jPanel3.add(loginAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 230, -1));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 461, 600, 40));
 
-        jTextField1.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(225, 90, 71));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, 150, -1));
+        txtEmail.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        txtEmail.setForeground(new java.awt.Color(225, 90, 71));
+        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, 150, -1));
 
-        jTextField2.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(225, 90, 71));
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txtID.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        txtID.setForeground(new java.awt.Color(225, 90, 71));
+        txtID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txtIDActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 185, 150, -1));
+        jPanel1.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 185, 150, -1));
 
-        jTextField4.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(225, 90, 71));
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, 150, -1));
+        txtFullName.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        txtFullName.setForeground(new java.awt.Color(225, 90, 71));
+        jPanel1.add(txtFullName, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, 150, -1));
 
         jLabel3.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(225, 90, 71));
@@ -146,9 +162,9 @@ public class AdminRegistration extends javax.swing.JFrame {
         jLabel5.setText("Admin ID");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 185, -1, 20));
 
-        jPasswordField1.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        jPasswordField1.setForeground(new java.awt.Color(225, 90, 71));
-        jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 215, 150, -1));
+        txtPassword.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        txtPassword.setForeground(new java.awt.Color(225, 90, 71));
+        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 215, 150, -1));
 
         jPanel5.setBackground(new java.awt.Color(225, 90, 71));
 
@@ -172,9 +188,14 @@ public class AdminRegistration extends javax.swing.JFrame {
         jLabel16.setText("PERSONAL INFO");
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 275, 600, 30));
 
-        jPasswordField2.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        jPasswordField2.setForeground(new java.awt.Color(225, 90, 71));
-        jPanel1.add(jPasswordField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 245, 150, 20));
+        txtConfirmPassword.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        txtConfirmPassword.setForeground(new java.awt.Color(225, 90, 71));
+        txtConfirmPassword.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtConfirmPasswordFocusLost(evt);
+            }
+        });
+        jPanel1.add(txtConfirmPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 245, 150, -1));
 
         jLabel8.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(225, 90, 71));
@@ -186,21 +207,79 @@ public class AdminRegistration extends javax.swing.JFrame {
         jLabel10.setText("Contact");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 380, -1, 20));
 
-        jTextField5.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        jTextField5.setForeground(new java.awt.Color(225, 90, 71));
-        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 380, 150, -1));
+        txtContact.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        txtContact.setForeground(new java.awt.Color(225, 90, 71));
+        txtContact.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtContactActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 380, 150, -1));
 
-        jButton1.setText("Click to Register");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 420, -1, -1));
+        registerAdmin.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        registerAdmin.setForeground(new java.awt.Color(225, 90, 71));
+        registerAdmin.setText("SAVE");
+        registerAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerAdminActionPerformed(evt);
+            }
+        });
+        jPanel1.add(registerAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 415, 130, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 501));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txtIDActionPerformed
+
+    private void loginAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginAdminActionPerformed
+        // TODO add your handling code here:
+        AdminLogin admLgn = new AdminLogin();
+        admLgn.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_loginAdminActionPerformed
+
+    private void registerAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerAdminActionPerformed
+        // TODO add your handling code here:
+        System.out.println("Register clicked");
+        Statement statement = DBConnect.getStatement();
+        if(txtID.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Please enter Admin ID...");
+        } else if(txtPassword.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Please enter Password...");
+        } else if(txtFullName.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Please enter Full Name...");
+        } else if(txtEmail.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Please enter Email...");
+        } else if(txtContact.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Please enter Contact...");
+        } else if(txtEmail.getText().indexOf("@")==-1 || txtEmail.getText().indexOf(".")==-1){
+            JOptionPane.showMessageDialog(this,"Entered email is incorrect");
+        } else {
+            String query = "insert into admin(ID, password, name, email, contact) values('"+txtID.getText()+"','"+txtPassword.getText()+"','"+txtFullName.getText()+"','"+txtEmail.getText()+"','"+txtContact.getText()+"')";
+            try {
+                if (statement.execute(query)) {
+                    JOptionPane.showMessageDialog(this,"ADMIN REGISTERED SUCCESSFULLY...!!!");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(AdminRegistration.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_registerAdminActionPerformed
+
+    private void txtContactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContactActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContactActionPerformed
+
+    private void txtConfirmPasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtConfirmPasswordFocusLost
+        // TODO add your handling code here:
+        if(txtConfirmPassword.getText().equals(txtPassword.getText())){
+            JOptionPane.showMessageDialog(this, "Password and Confirm Password do not match...");
+        }
+    }//GEN-LAST:event_txtConfirmPasswordFocusLost
 
     /**
      * @param args the command line arguments
@@ -237,8 +316,6 @@ public class AdminRegistration extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
@@ -253,11 +330,13 @@ public class AdminRegistration extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JButton loginAdmin;
+    private javax.swing.JButton registerAdmin;
+    private javax.swing.JPasswordField txtConfirmPassword;
+    private javax.swing.JTextField txtContact;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtFullName;
+    private javax.swing.JTextField txtID;
+    private javax.swing.JPasswordField txtPassword;
     // End of variables declaration//GEN-END:variables
 }

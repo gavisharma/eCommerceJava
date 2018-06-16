@@ -16,6 +16,7 @@ public class CustomerRegistration extends javax.swing.JFrame {
      */
     public CustomerRegistration() {
         initComponents();
+        
     }
 
     /**
@@ -39,8 +40,7 @@ public class CustomerRegistration extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        loginCustomer = new javax.swing.JButton();
         jTextField2 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -51,8 +51,6 @@ public class CustomerRegistration extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         jPasswordField2 = new javax.swing.JPasswordField();
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -61,10 +59,16 @@ public class CustomerRegistration extends javax.swing.JFrame {
         jTextField6 = new javax.swing.JTextField();
         jTextField7 = new javax.swing.JTextField();
         jTextField8 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        registerCustomer = new javax.swing.JButton();
+        jTextField9 = new javax.swing.JTextField();
+        txtAptNum = new javax.swing.JTextField();
+        txtStName = new javax.swing.JTextField();
+        txtCountry = new javax.swing.JTextField();
+        txtProvince = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 46, 30));
+        setBounds(new java.awt.Rectangle(350, 100, 0, 0));
         setForeground(new java.awt.Color(0, 46, 30));
         setMinimumSize(new java.awt.Dimension(600, 450));
         setPreferredSize(new java.awt.Dimension(600, 530));
@@ -136,16 +140,18 @@ public class CustomerRegistration extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(225, 90, 71));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Already registered? Login here...");
-        jButton2.setContentAreaFilled(false);
-        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 0, -1, 40));
+        loginCustomer.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        loginCustomer.setForeground(new java.awt.Color(255, 255, 255));
+        loginCustomer.setText("Already registered? Login here...");
+        loginCustomer.setContentAreaFilled(false);
+        loginCustomer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginCustomerActionPerformed(evt);
+            }
+        });
+        jPanel3.add(loginCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 0, -1, 40));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 461, 600, 40));
-
-        jTextField1.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(225, 90, 71));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 150, -1));
 
         jTextField2.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         jTextField2.setForeground(new java.awt.Color(225, 90, 71));
@@ -233,14 +239,6 @@ public class CustomerRegistration extends javax.swing.JFrame {
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 600, 1));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        jTextArea1.setForeground(new java.awt.Color(225, 90, 71));
-        jTextArea1.setRows(3);
-        jScrollPane1.setViewportView(jTextArea1);
-
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, 150, 60));
-
         jPasswordField2.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         jPasswordField2.setForeground(new java.awt.Color(225, 90, 71));
         jPanel1.add(jPasswordField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, 150, -1));
@@ -276,15 +274,64 @@ public class CustomerRegistration extends javax.swing.JFrame {
         jTextField8.setForeground(new java.awt.Color(225, 90, 71));
         jPanel1.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, 150, -1));
 
-        jButton1.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(225, 90, 71));
-        jButton1.setText("SAVE");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        registerCustomer.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        registerCustomer.setForeground(new java.awt.Color(225, 90, 71));
+        registerCustomer.setText("SAVE");
+        registerCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                registerCustomerActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 420, 100, 30));
+        jPanel1.add(registerCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 420, 100, 30));
+
+        jTextField9.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        jTextField9.setForeground(new java.awt.Color(225, 90, 71));
+        jPanel1.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 150, -1));
+
+        txtAptNum.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        txtAptNum.setForeground(new java.awt.Color(225, 90, 71));
+        txtAptNum.setText("Apt#");
+        txtAptNum.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtAptNumFocusGained(evt);
+            }
+        });
+        jPanel1.add(txtAptNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, 35, -1));
+
+        txtStName.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        txtStName.setForeground(new java.awt.Color(225, 90, 71));
+        txtStName.setText("Street Name");
+        txtStName.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtStNameFocusGained(evt);
+            }
+        });
+        jPanel1.add(txtStName, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 270, 110, -1));
+
+        txtCountry.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        txtCountry.setForeground(new java.awt.Color(225, 90, 71));
+        txtCountry.setText("Country");
+        txtCountry.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCountryActionPerformed(evt);
+            }
+        });
+        txtCountry.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtCountryFocusGained(evt);
+            }
+        });
+        jPanel1.add(txtCountry, new org.netbeans.lib.awtextra.AbsoluteConstraints(485, 300, 75, -1));
+
+        txtProvince.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        txtProvince.setForeground(new java.awt.Color(225, 90, 71));
+        txtProvince.setText("Province");
+        txtProvince.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtProvinceFocusGained(evt);
+            }
+        });
+        jPanel1.add(txtProvince, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 300, 70, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 501));
 
@@ -295,9 +342,41 @@ public class CustomerRegistration extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void registerCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerCustomerActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        System.out.println("Register clicked");
+    }//GEN-LAST:event_registerCustomerActionPerformed
+
+    private void loginCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginCustomerActionPerformed
+        // TODO add your handling code here:
+        CustomerLogin cstmrLgn = new CustomerLogin();
+        cstmrLgn.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_loginCustomerActionPerformed
+
+    private void txtCountryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCountryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCountryActionPerformed
+
+    private void txtAptNumFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAptNumFocusGained
+        // TODO add your handling code here:
+        txtAptNum.setText("");
+    }//GEN-LAST:event_txtAptNumFocusGained
+
+    private void txtStNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtStNameFocusGained
+        // TODO add your handling code here:
+        txtStName.setText("");
+    }//GEN-LAST:event_txtStNameFocusGained
+
+    private void txtProvinceFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtProvinceFocusGained
+        // TODO add your handling code here:
+        txtProvince.setText("");
+    }//GEN-LAST:event_txtProvinceFocusGained
+
+    private void txtCountryFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCountryFocusGained
+        // TODO add your handling code here:
+        txtCountry.setText("");
+    }//GEN-LAST:event_txtCountryFocusGained
 
     /**
      * @param args the command line arguments
@@ -334,8 +413,6 @@ public class CustomerRegistration extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -359,9 +436,6 @@ public class CustomerRegistration extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
@@ -369,5 +443,12 @@ public class CustomerRegistration extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
+    private javax.swing.JButton loginCustomer;
+    private javax.swing.JButton registerCustomer;
+    private javax.swing.JTextField txtAptNum;
+    private javax.swing.JTextField txtCountry;
+    private javax.swing.JTextField txtProvince;
+    private javax.swing.JTextField txtStName;
     // End of variables declaration//GEN-END:variables
 }

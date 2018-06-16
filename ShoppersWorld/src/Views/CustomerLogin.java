@@ -1,5 +1,7 @@
 package Views;
 
+import Controllers.BaseNavigation;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -32,16 +34,18 @@ public class CustomerLogin extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
         jTextField2 = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        registerCustomer = new javax.swing.JButton();
+        backButton = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
-        jButton2 = new javax.swing.JButton();
+        loginCustomer = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 46, 30));
+        setBounds(new java.awt.Rectangle(350, 100, 0, 0));
         setForeground(new java.awt.Color(0, 46, 30));
         setMinimumSize(new java.awt.Dimension(600, 450));
         setResizable(false);
@@ -80,16 +84,6 @@ public class CustomerLogin extends javax.swing.JFrame {
         jLabel9.setText("CUSTOMER SIGN IN");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 145, 600, 30));
 
-        jPanel3.setBackground(new java.awt.Color(225, 90, 71));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jButton1.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(225, 90, 71));
-        jButton1.setText("Click to Register");
-        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, -1, -1));
-
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 600, 40));
-
         jTextField2.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         jTextField2.setForeground(new java.awt.Color(225, 90, 71));
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
@@ -114,6 +108,31 @@ public class CustomerLogin extends javax.swing.JFrame {
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 175, 600, 1));
 
+        jPanel3.setBackground(new java.awt.Color(225, 90, 71));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        registerCustomer.setForeground(new java.awt.Color(255, 255, 255));
+        registerCustomer.setText("Not yet registered? Click here...");
+        registerCustomer.setContentAreaFilled(false);
+        registerCustomer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerCustomerActionPerformed(evt);
+            }
+        });
+        jPanel3.add(registerCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 0, -1, 40));
+
+        backButton.setForeground(new java.awt.Color(255, 255, 255));
+        backButton.setText("Back");
+        backButton.setContentAreaFilled(false);
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
+        jPanel3.add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 40));
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 600, 40));
+
         jLabel5.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(225, 90, 71));
         jLabel5.setText("Customer ID");
@@ -123,13 +142,13 @@ public class CustomerLogin extends javax.swing.JFrame {
         jPasswordField1.setForeground(new java.awt.Color(225, 90, 71));
         jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, 150, -1));
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jButton2.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(225, 90, 71));
-        jButton2.setText("Click to Login");
-        jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton2.setBorderPainted(false);
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, 130, 30));
+        loginCustomer.setBackground(new java.awt.Color(255, 255, 255));
+        loginCustomer.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        loginCustomer.setForeground(new java.awt.Color(225, 90, 71));
+        loginCustomer.setText("LOGIN");
+        loginCustomer.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        loginCustomer.setBorderPainted(false);
+        jPanel1.add(loginCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, 130, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 500));
 
@@ -139,6 +158,19 @@ public class CustomerLogin extends javax.swing.JFrame {
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        // TODO add your handling code here:
+        new BaseNavigation().backButtonClicked("");
+        this.setVisible(false);
+    }//GEN-LAST:event_backButtonActionPerformed
+
+    private void registerCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerCustomerActionPerformed
+        // TODO add your handling code here:
+        CustomerRegistration cstmrReg = new CustomerRegistration();
+        cstmrReg.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_registerCustomerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,8 +207,7 @@ public class CustomerLogin extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton backButton;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -187,5 +218,7 @@ public class CustomerLogin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JButton loginCustomer;
+    private javax.swing.JButton registerCustomer;
     // End of variables declaration//GEN-END:variables
 }

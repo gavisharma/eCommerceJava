@@ -1,5 +1,13 @@
 package Views;
 
+import Controllers.BaseNavigation;
+import DatabaseServices.DBConnect;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -33,15 +41,17 @@ public class AdminLogin extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
+        registerAdmin = new javax.swing.JButton();
+        backButton = new javax.swing.JButton();
+        txtUserName = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jButton2 = new javax.swing.JButton();
+        txtPassword = new javax.swing.JPasswordField();
+        loginAdmin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 46, 30));
+        setBounds(new java.awt.Rectangle(350, 100, 0, 0));
         setForeground(new java.awt.Color(0, 46, 30));
         setMinimumSize(new java.awt.Dimension(600, 450));
         setPreferredSize(new java.awt.Dimension(600, 530));
@@ -84,19 +94,38 @@ public class AdminLogin extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(225, 90, 71));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("Click to Register");
-        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, -1, -1));
+        registerAdmin.setForeground(new java.awt.Color(255, 255, 255));
+        registerAdmin.setText("Not registered yet? Click here...");
+        registerAdmin.setContentAreaFilled(false);
+        registerAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerAdminActionPerformed(evt);
+            }
+        });
+        jPanel3.add(registerAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(399, 0, 200, 40));
+
+        backButton.setBackground(new java.awt.Color(255, 255, 255));
+        backButton.setForeground(new java.awt.Color(255, 255, 255));
+        backButton.setText("Back");
+        backButton.setContentAreaFilled(false);
+        backButton.setPreferredSize(new java.awt.Dimension(80, 40));
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
+        jPanel3.add(backButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 461, 600, 40));
 
-        jTextField2.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(225, 90, 71));
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txtUserName.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        txtUserName.setForeground(new java.awt.Color(225, 90, 71));
+        txtUserName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txtUserNameActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, 150, -1));
+        jPanel1.add(txtUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, 150, -1));
 
         jPanel4.setBackground(new java.awt.Color(225, 90, 71));
 
@@ -118,24 +147,65 @@ public class AdminLogin extends javax.swing.JFrame {
         jLabel5.setText("Admin ID");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, -1, 20));
 
-        jPasswordField1.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
-        jPasswordField1.setForeground(new java.awt.Color(225, 90, 71));
-        jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, 150, -1));
+        txtPassword.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        txtPassword.setForeground(new java.awt.Color(225, 90, 71));
+        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, 150, -1));
 
-        jButton2.setForeground(new java.awt.Color(225, 90, 71));
-        jButton2.setText("Click to Login");
-        jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton2.setBorderPainted(false);
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, 130, 30));
+        loginAdmin.setFont(new java.awt.Font("Verdana", 0, 10)); // NOI18N
+        loginAdmin.setForeground(new java.awt.Color(225, 90, 71));
+        loginAdmin.setText("LOGIN");
+        loginAdmin.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        loginAdmin.setBorderPainted(false);
+        loginAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginAdminActionPerformed(evt);
+            }
+        });
+        jPanel1.add(loginAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, 130, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 501));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txtUserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txtUserNameActionPerformed
+
+    private void registerAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerAdminActionPerformed
+        // TODO add your handling code here:
+        AdminRegistration admReg = new AdminRegistration();
+        admReg.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_registerAdminActionPerformed
+
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        // TODO add your handling code here:
+        new BaseNavigation().backButtonClicked("");
+        this.setVisible(false);
+    }//GEN-LAST:event_backButtonActionPerformed
+
+    private void loginAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginAdminActionPerformed
+        // TODO add your handling code here:
+        String query = "Select name from admin where ID = '"+ txtUserName.getText() +"' and password = '"+ txtPassword.getText() +"'";
+        ResultSet resultSet = DBConnect.getResultSetForQuery(query);
+        try {
+            if(resultSet.next()){
+                HomeCategories homeCat = new HomeCategories();
+                HomeCategories.userName = resultSet.getString(1).toUpperCase();
+                homeCat.setVisible(true);
+                this.setVisible(false);
+            }
+            else{
+                JOptionPane.showMessageDialog(this,"Invalid Username/Password.....!!!");
+                txtUserName.setText("");
+                txtPassword.setText("");
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, ex);
+        }
+        
+    }//GEN-LAST:event_loginAdminActionPerformed
 
     /**
      * @param args the command line arguments
@@ -172,8 +242,7 @@ public class AdminLogin extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton backButton;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -182,7 +251,9 @@ public class AdminLogin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JButton loginAdmin;
+    private javax.swing.JButton registerAdmin;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
 }
